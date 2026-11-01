@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bps4dhpweh6at" path="res://scripts/manager.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bm7wuh3htixi4" path="res://assets/Background.png" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://c20u8kihu00wu" path="res://scenes/letter.tscn" id="2_7mycd"]
 [ext_resource type="FontFile" uid="uid://pj025apw33nj" path="res://assets/CaveatBrush-Regular.ttf" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://5axnr5eaqu0u" path="res://assets/coin.webp" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://bnq7yqx0y7vyn" path="res://scripts/upgradeManager.gd" id="4_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sik88"]
 size = Vector2(132, 198)
@@ -36,8 +39,9 @@ bg_color = Color(0.5137255, 0.41960785, 0.3529412, 1)
 
 [node name="Node2D" type="Node2D" unique_id=178895536]
 script = ExtResource("1_ig7tw")
+letterScene = ExtResource("2_7mycd")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=665695102]
+[node name="Background" type="Sprite2D" parent="." unique_id=665695102]
 texture = ExtResource("2_0xm2m")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1920580588]
@@ -192,21 +196,23 @@ text = "TPS UPGRADE SHOP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Shop" unique_id=1221074493]
+[node name="Upgrades" type="ScrollContainer" parent="Shop" unique_id=1221074493]
 offset_left = 180.0
 offset_top = -320.0
 offset_right = 480.0
 offset_bottom = -79.0
 
-[node name="Container" type="VBoxContainer" parent="Shop/ScrollContainer" unique_id=1882822811]
+[node name="Container" type="VBoxContainer" parent="Shop/Upgrades" unique_id=1882822811]
 layout_mode = 2
 
-[node name="Upgrade" type="ColorRect" parent="Shop/ScrollContainer/Container" unique_id=846763762]
+[node name="Upgrade1" type="ColorRect" parent="Shop/Upgrades/Container" unique_id=846763762]
 custom_minimum_size = Vector2(287, 52)
 layout_mode = 2
 color = Color(0.43529412, 0.5568628, 0.50980395, 1)
+script = ExtResource("4_lquwl")
+price = 100
 
-[node name="Name" type="Label" parent="Shop/ScrollContainer/Container/Upgrade" unique_id=1785978181]
+[node name="Name" type="Label" parent="Shop/Upgrades/Container/Upgrade1" unique_id=1785978181]
 layout_mode = 0
 offset_left = 3.0
 offset_right = 174.0
@@ -216,7 +222,7 @@ theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 24
 text = "UPGRADE #1 (COST)"
 
-[node name="Description" type="Label" parent="Shop/ScrollContainer/Container/Upgrade" unique_id=1610468566]
+[node name="Description" type="Label" parent="Shop/Upgrades/Container/Upgrade1" unique_id=1610468566]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 26.0
@@ -227,7 +233,7 @@ theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 16
 text = "DESCRIPTION OF UPGRADE"
 
-[node name="Button" type="Button" parent="Shop/ScrollContainer/Container/Upgrade" unique_id=102747161]
+[node name="Button" type="Button" parent="Shop/Upgrades/Container/Upgrade1" unique_id=102747161]
 layout_mode = 0
 offset_left = 227.0
 offset_top = 6.0
@@ -240,12 +246,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
 text = "BUY"
 
-[node name="Upgrade2" type="ColorRect" parent="Shop/ScrollContainer/Container" unique_id=1195330563]
+[node name="Upgrade2" type="ColorRect" parent="Shop/Upgrades/Container" unique_id=1195330563]
 custom_minimum_size = Vector2(287, 52)
 layout_mode = 2
 color = Color(0.43529412, 0.5568628, 0.50980395, 1)
+script = ExtResource("4_lquwl")
+upgradeNumber = 1
+price = 250
 
-[node name="Name" type="Label" parent="Shop/ScrollContainer/Container/Upgrade2" unique_id=454984181]
+[node name="Name" type="Label" parent="Shop/Upgrades/Container/Upgrade2" unique_id=454984181]
 layout_mode = 0
 offset_left = 3.0
 offset_right = 174.0
@@ -253,9 +262,9 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
 theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 24
-text = "UPGRADE #1 (COST)"
+text = "UPGRADE #2 (COST)"
 
-[node name="Description" type="Label" parent="Shop/ScrollContainer/Container/Upgrade2" unique_id=1089731724]
+[node name="Description" type="Label" parent="Shop/Upgrades/Container/Upgrade2" unique_id=1089731724]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 26.0
@@ -266,7 +275,7 @@ theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 16
 text = "DESCRIPTION OF UPGRADE"
 
-[node name="Button" type="Button" parent="Shop/ScrollContainer/Container/Upgrade2" unique_id=1279929163]
+[node name="Button" type="Button" parent="Shop/Upgrades/Container/Upgrade2" unique_id=1279929163]
 layout_mode = 0
 offset_left = 227.0
 offset_top = 6.0
@@ -279,12 +288,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
 text = "BUY"
 
-[node name="Upgrade3" type="ColorRect" parent="Shop/ScrollContainer/Container" unique_id=40984844]
+[node name="Upgrade3" type="ColorRect" parent="Shop/Upgrades/Container" unique_id=40984844]
 custom_minimum_size = Vector2(287, 52)
 layout_mode = 2
 color = Color(0.43529412, 0.5568628, 0.50980395, 1)
+script = ExtResource("4_lquwl")
+upgradeNumber = 2
+price = 1000
 
-[node name="Name" type="Label" parent="Shop/ScrollContainer/Container/Upgrade3" unique_id=1834928032]
+[node name="Name" type="Label" parent="Shop/Upgrades/Container/Upgrade3" unique_id=1834928032]
 layout_mode = 0
 offset_left = 3.0
 offset_right = 174.0
@@ -292,9 +304,9 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
 theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 24
-text = "UPGRADE #1 (COST)"
+text = "UPGRADE #3 (COST)"
 
-[node name="Description" type="Label" parent="Shop/ScrollContainer/Container/Upgrade3" unique_id=1999176950]
+[node name="Description" type="Label" parent="Shop/Upgrades/Container/Upgrade3" unique_id=1999176950]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 26.0
@@ -305,7 +317,7 @@ theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 16
 text = "DESCRIPTION OF UPGRADE"
 
-[node name="Button" type="Button" parent="Shop/ScrollContainer/Container/Upgrade3" unique_id=957357358]
+[node name="Button" type="Button" parent="Shop/Upgrades/Container/Upgrade3" unique_id=957357358]
 layout_mode = 0
 offset_left = 227.0
 offset_top = 6.0
@@ -318,12 +330,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
 text = "BUY"
 
-[node name="Upgrade4" type="ColorRect" parent="Shop/ScrollContainer/Container" unique_id=474181458]
+[node name="Upgrade4" type="ColorRect" parent="Shop/Upgrades/Container" unique_id=474181458]
 custom_minimum_size = Vector2(287, 52)
 layout_mode = 2
 color = Color(0.43529412, 0.5568628, 0.50980395, 1)
+script = ExtResource("4_lquwl")
+upgradeNumber = 3
+price = 1500
 
-[node name="Name" type="Label" parent="Shop/ScrollContainer/Container/Upgrade4" unique_id=1458462908]
+[node name="Name" type="Label" parent="Shop/Upgrades/Container/Upgrade4" unique_id=1458462908]
 layout_mode = 0
 offset_left = 3.0
 offset_right = 174.0
@@ -331,9 +346,9 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
 theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 24
-text = "UPGRADE #1 (COST)"
+text = "UPGRADE #4 (COST)"
 
-[node name="Description" type="Label" parent="Shop/ScrollContainer/Container/Upgrade4" unique_id=385767592]
+[node name="Description" type="Label" parent="Shop/Upgrades/Container/Upgrade4" unique_id=385767592]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 26.0
@@ -344,7 +359,7 @@ theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 16
 text = "DESCRIPTION OF UPGRADE"
 
-[node name="Button" type="Button" parent="Shop/ScrollContainer/Container/Upgrade4" unique_id=2065698753]
+[node name="Button" type="Button" parent="Shop/Upgrades/Container/Upgrade4" unique_id=2065698753]
 layout_mode = 0
 offset_left = 227.0
 offset_top = 6.0
@@ -357,12 +372,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
 text = "BUY"
 
-[node name="Upgrade5" type="ColorRect" parent="Shop/ScrollContainer/Container" unique_id=1256514807]
+[node name="Upgrade5" type="ColorRect" parent="Shop/Upgrades/Container" unique_id=1256514807]
 custom_minimum_size = Vector2(287, 52)
 layout_mode = 2
 color = Color(0.43529412, 0.5568628, 0.50980395, 1)
+script = ExtResource("4_lquwl")
+upgradeNumber = 4
+price = 5000
 
-[node name="Name" type="Label" parent="Shop/ScrollContainer/Container/Upgrade5" unique_id=1864480037]
+[node name="Name" type="Label" parent="Shop/Upgrades/Container/Upgrade5" unique_id=1864480037]
 layout_mode = 0
 offset_left = 3.0
 offset_right = 174.0
@@ -370,9 +388,9 @@ offset_bottom = 32.0
 theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
 theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 24
-text = "UPGRADE #1 (COST)"
+text = "UPGRADE #5 (COST)"
 
-[node name="Description" type="Label" parent="Shop/ScrollContainer/Container/Upgrade5" unique_id=808614899]
+[node name="Description" type="Label" parent="Shop/Upgrades/Container/Upgrade5" unique_id=808614899]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 26.0
@@ -383,7 +401,7 @@ theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 16
 text = "DESCRIPTION OF UPGRADE"
 
-[node name="Button" type="Button" parent="Shop/ScrollContainer/Container/Upgrade5" unique_id=1841276516]
+[node name="Button" type="Button" parent="Shop/Upgrades/Container/Upgrade5" unique_id=1841276516]
 layout_mode = 0
 offset_left = 227.0
 offset_top = 6.0
@@ -396,7 +414,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
 text = "BUY"
 
-[node name="LetterQueue" type="Label" parent="." unique_id=525040600]
+[node name="LetterQueue" type="Sprite2D" parent="." unique_id=96181323]
+
+[node name="Label" type="Label" parent="LetterQueue" unique_id=525040600]
 offset_left = -541.0
 offset_top = 90.0
 offset_right = -274.0
@@ -406,7 +426,7 @@ theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 46
 text = "LETTER QUEUE"
 
-[node name="QueueCount" type="Label" parent="." unique_id=134792397]
+[node name="QueueCount" type="Label" parent="LetterQueue" unique_id=134792397]
 offset_left = 36.0
 offset_top = 92.0
 offset_right = 86.0
@@ -414,14 +434,19 @@ offset_bottom = 158.0
 theme_override_colors/font_color = Color(1, 0.78039217, 0.5882353, 1)
 theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 46
-text = "0/1"
+text = "0/2"
 
-[node name="MoneyCount" type="Label" parent="." unique_id=939686377]
-offset_left = -624.0
+[node name="CoinSprite" type="Sprite2D" parent="." unique_id=1442683840]
+position = Vector2(-612, -407.00003)
+scale = Vector2(0.07226561, 0.07226561)
+texture = ExtResource("4_1bvp3")
+
+[node name="CoinCount" type="Label" parent="." unique_id=939686377]
+offset_left = -591.0
 offset_top = -436.0
 offset_right = -357.0
 offset_bottom = -370.0
 theme_override_colors/font_color = Color(1, 0.78039217, 0.5882353, 1)
 theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 46
-text = "$0"
+text = "0"

@@ -5,4 +5,8 @@ var recipient = "POOBERT"
 
 func setRecipient(name: String) -> void:
 	recipient = name
+	if (label):
+		label.text = recipient
+
+func _ready() -> void:
 	label.text = recipient
