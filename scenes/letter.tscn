@@ -32,3 +32,5 @@ vertical_alignment = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1327464988]
 position = Vector2(-3, 0.5)
 shape = SubResource("RectangleShape2D_gqpgd")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

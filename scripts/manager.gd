@@ -19,7 +19,7 @@ func spawnLetter() -> Node2D:
 	var recipient = names[randi_range(0, 6)]
 	var letter = letterScene.instantiate()
 	letterQueue.add_child(letter)
-	letter.setRecipient(recipient)
+	letter.setRecipient(recipient, lettersInQueue.size() == 0)
 	letter.z_index = maxLettersInQueue - lettersInQueue.size()
 	letter.position = Vector2(-30-100*lettersInQueue.size(), 230)
 	return letter
