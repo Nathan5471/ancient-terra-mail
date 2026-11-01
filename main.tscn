@@ -436,6 +436,16 @@ theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 46
 text = "0/2"
 
+[node name="NextLetterTimer" type="Label" parent="LetterQueue" unique_id=2034411969]
+offset_left = -547.0
+offset_top = 302.0
+offset_right = -307.0
+offset_bottom = 334.0
+theme_override_colors/font_color = Color(1, 0.78039217, 0.5882353, 1)
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 24
+text = "NEXT LETTER IN 5 SECONDS"
+
 [node name="CoinSprite" type="Sprite2D" parent="." unique_id=1442683840]
 position = Vector2(-612, -407.00003)
 scale = Vector2(0.07226561, 0.07226561)
@@ -450,3 +460,8 @@ theme_override_colors/font_color = Color(1, 0.78039217, 0.5882353, 1)
 theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 46
 text = "0"
+
+[node name="Timer" type="Timer" parent="." unique_id=1379132951]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

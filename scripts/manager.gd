@@ -9,6 +9,7 @@ var timeUntilSpawnLetter = 5
 @onready var coinCountLabel = $CoinCount
 @onready var letterQueue = $LetterQueue
 @onready var queueCountLabel = $LetterQueue/QueueCount
+@onready var nextLetterInLabel = $LetterQueue/NextLetterTimer
 
 func updateCoinCount(newCoinCount: int) -> void:
 	coinCount = newCoinCount
@@ -20,7 +21,7 @@ func spawnLetter() -> Node2D:
 	letterQueue.add_child(letter)
 	letter.setRecipient(recipient)
 	letter.z_index = maxLettersInQueue - lettersInQueue.size()
-	letter.position = Vector2(-30-100*lettersInQueue.size(), 250)
+	letter.position = Vector2(-30-100*lettersInQueue.size(), 230)
 	return letter
 
 func handleSpawnLetter() -> void:
@@ -33,6 +34,12 @@ func handleSpawnLetter() -> void:
 
 func _ready() -> void:
 	updateCoinCount(500)
+
+func _on_timer_timeout() -> void:
+	if (timeUntilSpawnLetter > 1):
+		timeUntilSpawnLetter -= 1
+		nextLetterInLabel.text = "NEXT LETTER IN %d SECONDS" % timeUntilSpawnLetter
+		return
 	handleSpawnLetter()
-	handleSpawnLetter()
-	handleSpawnLetter()
+	timeUntilSpawnLetter = 5
+	nextLetterInLabel.text = "NEXT LETTER IN %d SECONDS" % timeUntilSpawnLetter
