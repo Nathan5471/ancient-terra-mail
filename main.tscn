@@ -2,9 +2,169 @@
 
 [ext_resource type="Script" uid="uid://bps4dhpweh6at" path="res://scripts/manager.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bm7wuh3htixi4" path="res://assets/Background.png" id="2_0xm2m"]
+[ext_resource type="FontFile" uid="uid://pj025apw33nj" path="res://assets/CaveatBrush-Regular.ttf" id="3_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sik88"]
+size = Vector2(132, 198)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqpgd"]
+size = Vector2(122, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4brd"]
+size = Vector2(117, 203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu80w"]
+size = Vector2(107, 197)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihjqa"]
+size = Vector2(93, 190)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfn53"]
+size = Vector2(237, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqfm0"]
+size = Vector2(189, 123)
 
 [node name="Node2D" type="Node2D" unique_id=178895536]
 script = ExtResource("1_ig7tw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=665695102]
 texture = ExtResource("2_0xm2m")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1920580588]
+zoom = Vector2(0.895, 0.75)
+
+[node name="Mailboxes" type="Node2D" parent="." unique_id=394058616]
+
+[node name="Olive" type="Area2D" parent="Mailboxes" unique_id=90649368]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Olive" unique_id=420152821]
+position = Vector2(-535, -237)
+shape = SubResource("RectangleShape2D_sik88")
+
+[node name="Label" type="Label" parent="Mailboxes/Olive" unique_id=525599627]
+offset_left = -571.0
+offset_top = -356.0
+offset_right = -506.0
+offset_bottom = -319.0
+theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 29
+text = "OLIVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Fiona" type="Area2D" parent="Mailboxes" unique_id=2077759626]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Fiona" unique_id=1241003727]
+position = Vector2(-369, -241)
+shape = SubResource("RectangleShape2D_gqpgd")
+
+[node name="Label" type="Label" parent="Mailboxes/Fiona" unique_id=1816361991]
+offset_left = -403.0
+offset_top = -358.0
+offset_right = -335.0
+offset_bottom = -321.0
+theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 29
+text = "FIONA"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Miggy" type="Area2D" parent="Mailboxes" unique_id=570594450]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Miggy" unique_id=386944917]
+position = Vector2(-219.5, -239.5)
+shape = SubResource("RectangleShape2D_i4brd")
+
+[node name="Label" type="Label" parent="Mailboxes/Miggy" unique_id=1915673589]
+offset_left = -251.0
+offset_top = -359.0
+offset_right = -183.0
+offset_bottom = -322.0
+theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 23
+text = "MIGGY"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Heidi" type="Area2D" parent="Mailboxes" unique_id=48948269]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Heidi" unique_id=1252705419]
+position = Vector2(-82, -238)
+shape = SubResource("RectangleShape2D_iu80w")
+
+[node name="Label" type="Label" parent="Mailboxes/Heidi" unique_id=121029738]
+offset_left = -113.0
+offset_top = -351.0
+offset_right = -45.0
+offset_bottom = -314.0
+theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 26
+text = "HEIDI"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Blarg" type="Area2D" parent="Mailboxes" unique_id=1874845229]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Blarg" unique_id=725266512]
+position = Vector2(49.5, -231)
+shape = SubResource("RectangleShape2D_ihjqa")
+
+[node name="Label" type="Label" parent="Mailboxes/Blarg" unique_id=1928365627]
+offset_left = 17.0
+offset_top = -344.0
+offset_right = 85.0
+offset_bottom = -307.0
+theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 23
+text = "BLARG"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Poobert" type="Area2D" parent="Mailboxes" unique_id=1837793117]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Poobert" unique_id=780798876]
+position = Vector2(-430, -62)
+shape = SubResource("RectangleShape2D_nfn53")
+
+[node name="Label" type="Label" parent="Mailboxes/Poobert" unique_id=21157257]
+offset_left = -479.0
+offset_top = -13.0
+offset_right = -383.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 29
+text = "POOBERT"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Ratticus" type="Area2D" parent="Mailboxes" unique_id=244334228]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Ratticus" unique_id=1982086286]
+position = Vector2(-155.5, -65.5)
+shape = SubResource("RectangleShape2D_mqfm0")
+
+[node name="Label" type="Label" parent="Mailboxes/Ratticus" unique_id=1674609356]
+offset_left = -203.0
+offset_top = -25.0
+offset_right = -97.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("3_h2yge")
+theme_override_font_sizes/font_size = 24
+text = "RATTICUS"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
