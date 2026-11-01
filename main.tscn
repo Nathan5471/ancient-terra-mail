@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://coklix2op705k"]
 
+[ext_resource type="Script" uid="uid://bps4dhpweh6at" path="res://scripts/manager.gd" id="1_ig7tw"]
+
 [node name="Node2D" type="Node2D" unique_id=178895536]
+script = ExtResource("1_ig7tw")
