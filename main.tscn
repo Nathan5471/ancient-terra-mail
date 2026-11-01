@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://coklix2op705k"]
 
 [ext_resource type="Script" uid="uid://bps4dhpweh6at" path="res://scripts/manager.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://bm7wuh3htixi4" path="res://assets/Background.png" id="2_0xm2m"]
 
 [node name="Node2D" type="Node2D" unique_id=178895536]
 script = ExtResource("1_ig7tw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=665695102]
+texture = ExtResource("2_0xm2m")
