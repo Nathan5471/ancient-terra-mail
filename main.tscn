@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c20u8kihu00wu" path="res://scenes/letter.tscn" id="2_7mycd"]
 [ext_resource type="FontFile" uid="uid://pj025apw33nj" path="res://assets/CaveatBrush-Regular.ttf" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://5axnr5eaqu0u" path="res://assets/coin.webp" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://70ya8wfbyiff" path="res://scripts/mailboxManager.gd" id="4_272bh"]
 [ext_resource type="Script" uid="uid://bnq7yqx0y7vyn" path="res://scripts/upgradeManager.gd" id="4_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sik88"]
@@ -50,6 +51,8 @@ zoom = Vector2(1.5, 1.5)
 [node name="Mailboxes" type="Node2D" parent="." unique_id=394058616]
 
 [node name="Olive" type="Area2D" parent="Mailboxes" unique_id=90649368]
+script = ExtResource("4_272bh")
+mailboxOwner = "OLIVE"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Olive" unique_id=420152821]
 position = Vector2(-535, -237)
@@ -69,6 +72,8 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Fiona" type="Area2D" parent="Mailboxes" unique_id=2077759626]
+script = ExtResource("4_272bh")
+mailboxOwner = "FIONA"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Fiona" unique_id=1241003727]
 position = Vector2(-369, -241)
@@ -88,6 +93,8 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Miggy" type="Area2D" parent="Mailboxes" unique_id=570594450]
+script = ExtResource("4_272bh")
+mailboxOwner = "MIGGY"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Miggy" unique_id=386944917]
 position = Vector2(-219.5, -239.5)
@@ -107,6 +114,8 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Heidi" type="Area2D" parent="Mailboxes" unique_id=48948269]
+script = ExtResource("4_272bh")
+mailboxOwner = "HEIDI"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Heidi" unique_id=1252705419]
 position = Vector2(-82, -238)
@@ -126,6 +135,8 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Blarg" type="Area2D" parent="Mailboxes" unique_id=1874845229]
+script = ExtResource("4_272bh")
+mailboxOwner = "BLARG"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Blarg" unique_id=725266512]
 position = Vector2(49.5, -231)
@@ -145,6 +156,8 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Poobert" type="Area2D" parent="Mailboxes" unique_id=1837793117]
+script = ExtResource("4_272bh")
+mailboxOwner = "POOBERT"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Poobert" unique_id=780798876]
 position = Vector2(-430, -62)
@@ -164,6 +177,8 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Ratticus" type="Area2D" parent="Mailboxes" unique_id=244334228]
+script = ExtResource("4_272bh")
+mailboxOwner = "RATTICUS"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mailboxes/Ratticus" unique_id=1982086286]
 position = Vector2(-155.5, -65.5)
@@ -464,4 +479,11 @@ text = "0"
 [node name="Timer" type="Timer" parent="." unique_id=1379132951]
 autostart = true
 
+[connection signal="input_event" from="Mailboxes/Olive" to="Mailboxes/Olive" method="_on_input_event"]
+[connection signal="input_event" from="Mailboxes/Fiona" to="Mailboxes/Fiona" method="_on_input_event"]
+[connection signal="input_event" from="Mailboxes/Miggy" to="Mailboxes/Miggy" method="_on_input_event"]
+[connection signal="input_event" from="Mailboxes/Heidi" to="Mailboxes/Heidi" method="_on_input_event"]
+[connection signal="input_event" from="Mailboxes/Blarg" to="Mailboxes/Blarg" method="_on_input_event"]
+[connection signal="input_event" from="Mailboxes/Poobert" to="Mailboxes/Poobert" method="_on_input_event"]
+[connection signal="input_event" from="Mailboxes/Ratticus" to="Mailboxes/Ratticus" method="_on_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
