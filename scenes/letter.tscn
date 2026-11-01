@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c20u8kihu00wu"]
+
+[ext_resource type="Script" uid="uid://dd2qbfpjqlb2o" path="res://scenes/cardManager.gd" id="1_antxc"]
+[ext_resource type="Texture2D" uid="uid://ct4tb5fw8t3we" path="res://assets/Letter.png" id="1_kg060"]
+[ext_resource type="FontFile" uid="uid://pj025apw33nj" path="res://assets/CaveatBrush-Regular.ttf" id="2_s3w0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqpgd"]
+size = Vector2(948, 601)
+
+[node name="Letter" type="Node2D" unique_id=1150937284]
+script = ExtResource("1_antxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=25092176]
+texture = ExtResource("1_kg060")
+
+[node name="Label" type="Label" parent="." unique_id=1787321199]
+offset_left = -272.0
+offset_top = 91.0
+offset_right = 241.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0.7921569, 0.56078434, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("2_s3w0n")
+theme_override_font_sizes/font_size = 90
+text = "POOBERT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1256550971]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1327464988]
+position = Vector2(-3, 0.5)
+shape = SubResource("RectangleShape2D_gqpgd")

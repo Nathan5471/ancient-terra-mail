@@ -1,6 +1,6 @@
 extends Node2D
 
-const names = ["Poobert", "Ratticus", "Heidi", "Blarg", "Olive", "Fiona", "Miggy"];
+const names = ["POOBERT", "RATTICUS", "HEIDI", "BLARG", "OLIVE", "FIONA", "MIGGY"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
