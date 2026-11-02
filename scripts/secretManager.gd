@@ -14,7 +14,6 @@ func setSelected(answer: ColorRect, answerValue: String) -> void:
 	selectedAnswerValue = answerValue
 
 func clearSelected() -> void:
-	print("Clearing")
 	if (selectedAnswerValue == selectedObjectAnswer && selectedAnswerValue != ""):
 		selectedObject.setAnswered()
 		selectedAnswer.queue_free()
