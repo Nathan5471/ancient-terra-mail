@@ -6,8 +6,11 @@ const names = ["POOBERT", "RATTICUS", "HEIDI", "BLARG", "OLIVE", "FIONA", "MIGGY
 var coinCount: int = 0
 var lettersInQueue: Array[Node2D] = []
 var maxLettersInQueue: int = 2
+var timeBetweenSpawns = 5
 var timeUntilSpawnLetter = 5
 var pickedUpLetter: Node2D
+var letterValue = 10
+var letterMultiplier = 1
 var lettersDelivered = 0
 @onready var coinCountLabel = $CoinCount
 @onready var letterQueue = $LetterQueue
@@ -42,16 +45,13 @@ func handleRepositionLetters() -> void:
 		letter.position = Vector2(-30-100*i, 230)
 	queueCountLabel.text = "%d/%d" % [lettersInQueue.size(), maxLettersInQueue]
 
-func _ready() -> void:
-	updateCoinCount(500)
-
 func _on_timer_timeout() -> void:
 	if (timeUntilSpawnLetter > 1):
 		timeUntilSpawnLetter -= 1
 		nextLetterInLabel.text = "NEXT LETTER IN %d SECONDS" % timeUntilSpawnLetter
 		return
 	handleSpawnLetter()
-	timeUntilSpawnLetter = 5
+	timeUntilSpawnLetter = timeBetweenSpawns
 	nextLetterInLabel.text = "NEXT LETTER IN %d SECONDS" % timeUntilSpawnLetter
 
 func setPickedUp(letter: Node2D) -> void:
@@ -62,10 +62,26 @@ func clickedMailbox(mailboxOwner: String) -> void:
 		lettersInQueue.erase(pickedUpLetter)
 		pickedUpLetter.queue_free()
 		handleRepositionLetters()
-		updateCoinCount(coinCount + 50)
+		updateCoinCount(coinCount + letterValue * letterMultiplier)
 		lettersDelivered += 1
 	else:
 		pickedUpLetter = null
+
+func handleBuyUpgrade(upgradeNumber: int, upgradeCost: int) -> bool:
+	if (upgradeCost > coinCount):
+		return false
+	updateCoinCount(coinCount - upgradeCost)
+	if (upgradeNumber == 0):
+		letterValue += 10
+	elif (upgradeNumber == 1):
+		timeBetweenSpawns -= 1
+	elif (upgradeNumber == 2):
+		maxLettersInQueue += 1
+	elif (upgradeNumber == 3):
+		letterValue += 50
+	elif (upgradeNumber == 4):
+		letterMultiplier *= 2
+	return true
 
 func handleLose() -> void:
 	var endNode = endScene.instantiate()
