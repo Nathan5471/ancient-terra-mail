@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bjqjcelob6mya"]
+
+[ext_resource type="Script" uid="uid://cncu1keask6t1" path="res://scripts/startManager.gd" id="1_bodal"]
+[ext_resource type="Texture2D" uid="uid://b60s58t754u7u" path="res://assets/Start.png" id="1_jaeev"]
+[ext_resource type="PackedScene" uid="uid://coklix2op705k" path="res://main.tscn" id="2_kdmts"]
+[ext_resource type="FontFile" uid="uid://pj025apw33nj" path="res://assets/CaveatBrush-Regular.ttf" id="2_u80x2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u80x2"]
+bg_color = Color(0.43529412, 0.5568628, 0.50980395, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bodal"]
+bg_color = Color(0.43529412, 0.5568628, 0.50980395, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdmts"]
+bg_color = Color(0.43529412, 0.5568628, 0.50980395, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+
+[node name="Start" type="Node2D" unique_id=284145839]
+script = ExtResource("1_bodal")
+mainScene = ExtResource("2_kdmts")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1538683706]
+texture = ExtResource("1_jaeev")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=654364581]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Label" type="Label" parent="." unique_id=1110011995]
+offset_left = 208.0
+offset_top = -363.0
+offset_right = 486.0
+offset_bottom = -162.0
+theme_override_colors/font_color = Color(1, 0.78039217, 0.5882353, 1)
+theme_override_fonts/font = ExtResource("2_u80x2")
+theme_override_font_sizes/font_size = 78
+text = "TPS MAIL
+MANAGER"
+
+[node name="Button" type="Button" parent="." unique_id=261259149]
+offset_left = 277.0
+offset_top = -111.0
+offset_right = 441.0
+offset_bottom = -42.0
+theme_override_colors/font_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_colors/font_focus_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_colors/font_pressed_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_colors/font_hover_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.78039217, 0.5882353, 1)
+theme_override_fonts/font = ExtResource("2_u80x2")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxFlat_u80x2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bodal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kdmts")
+text = "PLAY"
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
