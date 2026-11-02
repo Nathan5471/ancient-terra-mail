@@ -1,11 +1,8 @@
 extends Node2D
 
-@export var mainScene: PackedScene
-@export var secretScene: PackedScene
-
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_packed(mainScene)
+	get_tree().change_scene_to_file("res://main.tscn")
 
 
 func _on_button_2_pressed() -> void:
-	get_tree().change_scene_to_packed(secretScene)
+	get_tree().change_scene_to_file("res://scenes/secret.tscn")

@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var mainScene: PackedScene
 @onready var fionaLetter = $Letters/Fiona
 @onready var ratticusLetter = $Letters/Ratticus
 @onready var blargLetter = $Letters/Blarg
@@ -25,4 +24,4 @@ func _ready() -> void:
 	extra.text = extra.text.replace(str(0), str(lettersDelivered))
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_packed(mainScene)
+	get_tree().change_scene_to_file("res://main.tscn")

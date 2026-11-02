@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cncu1keask6t1" path="res://scripts/startManager.gd" id="1_bodal"]
 [ext_resource type="Texture2D" uid="uid://b60s58t754u7u" path="res://assets/Start.png" id="1_jaeev"]
-[ext_resource type="PackedScene" uid="uid://coklix2op705k" path="res://main.tscn" id="2_kdmts"]
 [ext_resource type="FontFile" uid="uid://pj025apw33nj" path="res://assets/CaveatBrush-Regular.ttf" id="2_u80x2"]
-[ext_resource type="PackedScene" uid="uid://bta6xcpm5q77g" path="res://scenes/secret.tscn" id="3_0auqf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u80x2"]
 bg_color = Color(0.43529412, 0.5568628, 0.50980395, 1)
@@ -43,8 +41,6 @@ border_color = Color(0.81960785, 0.8156863, 0.72156864, 1)
 
 [node name="Start" type="Node2D" unique_id=284145839]
 script = ExtResource("1_bodal")
-mainScene = ExtResource("2_kdmts")
-secretScene = ExtResource("3_0auqf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1538683706]
 texture = ExtResource("1_jaeev")

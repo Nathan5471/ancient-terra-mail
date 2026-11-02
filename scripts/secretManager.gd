@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var startScene: PackedScene
 var selectedAnswer: ColorRect
 var selectedAnswerValue: String
 var selectedObject: ColorRect
@@ -35,4 +34,4 @@ func clearSelectedObject() -> void:
 	selectedObjectAnswer = ""
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_packed(startScene)
+	get_tree().change_scene_to_file("res://scenes/start.tscn")
