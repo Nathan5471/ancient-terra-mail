@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bps4dhpweh6at" path="res://scripts/manager.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bm7wuh3htixi4" path="res://assets/Background.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c20u8kihu00wu" path="res://scenes/letter.tscn" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bdki038xm57m1" path="res://scenes/end.tscn" id="3_5vw27"]
 [ext_resource type="FontFile" uid="uid://pj025apw33nj" path="res://assets/CaveatBrush-Regular.ttf" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://5axnr5eaqu0u" path="res://assets/coin.webp" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://70ya8wfbyiff" path="res://scripts/mailboxManager.gd" id="4_272bh"]
@@ -41,6 +42,7 @@ bg_color = Color(0.5137255, 0.41960785, 0.3529412, 1)
 [node name="Node2D" type="Node2D" unique_id=178895536]
 script = ExtResource("1_ig7tw")
 letterScene = ExtResource("2_7mycd")
+endScene = ExtResource("3_5vw27")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=665695102]
 texture = ExtResource("2_0xm2m")

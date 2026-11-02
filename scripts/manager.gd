@@ -2,11 +2,13 @@ extends Node2D
 
 const names = ["POOBERT", "RATTICUS", "HEIDI", "BLARG", "OLIVE", "FIONA", "MIGGY"]
 @export var letterScene: PackedScene
+@export var endScene: PackedScene
 var coinCount: int = 0
 var lettersInQueue: Array[Node2D] = []
 var maxLettersInQueue: int = 2
 var timeUntilSpawnLetter = 5
 var pickedUpLetter: Node2D
+var lettersDelivered = 0
 @onready var coinCountLabel = $CoinCount
 @onready var letterQueue = $LetterQueue
 @onready var queueCountLabel = $LetterQueue/QueueCount
@@ -27,8 +29,7 @@ func spawnLetter() -> Node2D:
 
 func handleSpawnLetter() -> void:
 	if (maxLettersInQueue == lettersInQueue.size()):
-		print("YOU LOSE")
-		return
+		handleLose()
 	var letter = spawnLetter()
 	lettersInQueue.append(letter)
 	queueCountLabel.text = "%d/%d" % [lettersInQueue.size(), maxLettersInQueue]
@@ -62,3 +63,11 @@ func clickedMailbox(mailboxOwner: String) -> void:
 		pickedUpLetter.queue_free()
 		handleRepositionLetters()
 		updateCoinCount(coinCount + 50)
+		lettersDelivered += 1
+	else:
+		pickedUpLetter = null
+
+func handleLose() -> void:
+	var endNode = endScene.instantiate()
+	endNode.setLettersDelivered(lettersDelivered)
+	get_tree().change_scene_to_node(endNode)
