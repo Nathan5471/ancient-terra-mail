@@ -417,7 +417,7 @@ offset_bottom = 49.0
 theme_override_colors/font_color = Color(0.7921569, 0.7882353, 0.69803923, 1)
 theme_override_fonts/font = ExtResource("3_h2yge")
 theme_override_font_sizes/font_size = 16
-text = "Multiplies the value of letters by 2"
+text = "Multiplies the value of letters by 1"
 
 [node name="Button" type="Button" parent="Shop/Upgrades/Container/Upgrade5" unique_id=1841276516]
 layout_mode = 0

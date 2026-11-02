@@ -65,7 +65,10 @@ func clickedMailbox(mailboxOwner: String) -> void:
 		updateCoinCount(coinCount + letterValue * letterMultiplier)
 		lettersDelivered += 1
 	else:
-		pickedUpLetter = null
+		lettersInQueue.erase(pickedUpLetter)
+		pickedUpLetter.queue_free()
+		handleRepositionLetters()
+		updateCoinCount(coinCount - letterValue * letterMultiplier * 2)
 
 func handleBuyUpgrade(upgradeNumber: int, upgradeCost: int) -> bool:
 	if (upgradeCost > coinCount):
@@ -80,7 +83,7 @@ func handleBuyUpgrade(upgradeNumber: int, upgradeCost: int) -> bool:
 	elif (upgradeNumber == 3):
 		letterValue += 50
 	elif (upgradeNumber == 4):
-		letterMultiplier *= 2
+		letterMultiplier += 1
 	return true
 
 func handleLose() -> void:
